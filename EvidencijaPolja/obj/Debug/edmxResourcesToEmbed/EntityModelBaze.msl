@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BazaPodatakaModelStoreContainer" CdmEntityContainer="BazaPodatakaEntities">
+    <EntitySetMapping Name="Godina">
+      <EntityTypeMapping TypeName="BazaPodatakaModel.Godina">
+        <MappingFragment StoreEntitySet="Godina">
+          <ScalarProperty Name="GodinaId" ColumnName="GodinaId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Godina1" ColumnName="Godina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polje">
+      <EntityTypeMapping TypeName="BazaPodatakaModel.Polje">
+        <MappingFragment StoreEntitySet="Polje">
+          <ScalarProperty Name="PoljeId" ColumnName="PoljeId" />
+          <ScalarProperty Name="GodinaId" ColumnName="GodinaId" />
+          <ScalarProperty Name="ImePolja" ColumnName="ImePolja" />
+          <ScalarProperty Name="LokacijaPolja" ColumnName="LokacijaPolja" />
+          <ScalarProperty Name="PovrsinaPolja" ColumnName="PovrsinaPolja" />
+          <ScalarProperty Name="TipZitarice" ColumnName="TipZitarice" />
+          <ScalarProperty Name="Gnojivo" ColumnName="Gnojivo" />
+          <ScalarProperty Name="Pesticidi" ColumnName="Pesticidi" />
+          <ScalarProperty Name="Herbicidi" ColumnName="Herbicidi" />
+          <ScalarProperty Name="Gorivo" ColumnName="Gorivo" />
+          <ScalarProperty Name="TrosakSjemena" ColumnName="TrosakSjemena" />
+          <ScalarProperty Name="TrosakGnojiva" ColumnName="TrosakGnojiva" />
+          <ScalarProperty Name="TrosakSpriceva" ColumnName="TrosakSpriceva" />
+          <ScalarProperty Name="TrosakGoriva" ColumnName="TrosakGoriva" />
+          <ScalarProperty Name="OstaliTroskovi" ColumnName="OstaliTroskovi" />
+          <ScalarProperty Name="Prinos" ColumnName="Prinos" />
+          <ScalarProperty Name="CijenaOtkupa" ColumnName="CijenaOtkupa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="BazaPodatakaModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="User1" ColumnName="User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

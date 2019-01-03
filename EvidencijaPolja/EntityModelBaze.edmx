@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BazaPodatakaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BazaPodatakaModelStoreContainer">
+          <EntitySet Name="Godina" EntityType="BazaPodatakaModel.Store.Godina" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Polje" EntityType="BazaPodatakaModel.Store.Polje" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="BazaPodatakaModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Godina_User" Association="BazaPodatakaModel.Store.FK_Godina_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Godina" EntitySet="Godina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polje_Godina" Association="BazaPodatakaModel.Store.FK_Polje_Godina">
+            <End Role="Godina" EntitySet="Godina" />
+            <End Role="Polje" EntitySet="Polje" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Godina">
+          <Key>
+            <PropertyRef Name="GodinaId" />
+          </Key>
+          <Property Name="GodinaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Godina" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Polje">
+          <Key>
+            <PropertyRef Name="PoljeId" />
+          </Key>
+          <Property Name="PoljeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GodinaId" Type="int" />
+          <Property Name="ImePolja" Type="nvarchar" MaxLength="50" />
+          <Property Name="LokacijaPolja" Type="nvarchar" MaxLength="50" />
+          <Property Name="PovrsinaPolja" Type="decimal" />
+          <Property Name="TipZitarice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gnojivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pesticidi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Herbicidi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gorivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrosakSjemena" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakGnojiva" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakSpriceva" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakGoriva" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="OstaliTroskovi" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="Prinos" Type="decimal" />
+          <Property Name="CijenaOtkupa" Type="decimal" Precision="2" Scale="2" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Godina_User">
+          <End Role="User" Type="BazaPodatakaModel.Store.User" Multiplicity="0..1" />
+          <End Role="Godina" Type="BazaPodatakaModel.Store.Godina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Godina">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polje_Godina">
+          <End Role="Godina" Type="BazaPodatakaModel.Store.Godina" Multiplicity="0..1" />
+          <End Role="Polje" Type="BazaPodatakaModel.Store.Polje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Godina">
+              <PropertyRef Name="GodinaId" />
+            </Principal>
+            <Dependent Role="Polje">
+              <PropertyRef Name="GodinaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BazaPodatakaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BazaPodatakaEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Godina" EntityType="BazaPodatakaModel.Godina" />
+          <EntitySet Name="Polje" EntityType="BazaPodatakaModel.Polje" />
+          <EntitySet Name="User" EntityType="BazaPodatakaModel.User" />
+          <AssociationSet Name="FK_Godina_User" Association="BazaPodatakaModel.FK_Godina_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Godina" EntitySet="Godina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polje_Godina" Association="BazaPodatakaModel.FK_Polje_Godina">
+            <End Role="Godina" EntitySet="Godina" />
+            <End Role="Polje" EntitySet="Polje" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Godina">
+          <Key>
+            <PropertyRef Name="GodinaId" />
+          </Key>
+          <Property Name="GodinaId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Godina1" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="User" Relationship="BazaPodatakaModel.FK_Godina_User" FromRole="Godina" ToRole="User" />
+          <NavigationProperty Name="Polje" Relationship="BazaPodatakaModel.FK_Polje_Godina" FromRole="Godina" ToRole="Polje" />
+        </EntityType>
+        <EntityType Name="Polje">
+          <Key>
+            <PropertyRef Name="PoljeId" />
+          </Key>
+          <Property Name="PoljeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GodinaId" Type="Int32" />
+          <Property Name="ImePolja" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LokacijaPolja" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PovrsinaPolja" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TipZitarice" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gnojivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Pesticidi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Herbicidi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gorivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TrosakSjemena" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakGnojiva" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakSpriceva" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="TrosakGoriva" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="OstaliTroskovi" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="Prinos" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CijenaOtkupa" Type="Decimal" Precision="2" Scale="2" />
+          <NavigationProperty Name="Godina" Relationship="BazaPodatakaModel.FK_Polje_Godina" FromRole="Polje" ToRole="Godina" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="User1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Godina" Relationship="BazaPodatakaModel.FK_Godina_User" FromRole="User" ToRole="Godina" />
+        </EntityType>
+        <Association Name="FK_Godina_User">
+          <End Role="User" Type="BazaPodatakaModel.User" Multiplicity="0..1" />
+          <End Role="Godina" Type="BazaPodatakaModel.Godina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Godina">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polje_Godina">
+          <End Role="Godina" Type="BazaPodatakaModel.Godina" Multiplicity="0..1" />
+          <End Role="Polje" Type="BazaPodatakaModel.Polje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Godina">
+              <PropertyRef Name="GodinaId" />
+            </Principal>
+            <Dependent Role="Polje">
+              <PropertyRef Name="GodinaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BazaPodatakaModelStoreContainer" CdmEntityContainer="BazaPodatakaEntities">
+          <EntitySetMapping Name="Godina">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Godina">
+              <MappingFragment StoreEntitySet="Godina">
+                <ScalarProperty Name="GodinaId" ColumnName="GodinaId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Godina1" ColumnName="Godina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polje">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Polje">
+              <MappingFragment StoreEntitySet="Polje">
+                <ScalarProperty Name="PoljeId" ColumnName="PoljeId" />
+                <ScalarProperty Name="GodinaId" ColumnName="GodinaId" />
+                <ScalarProperty Name="ImePolja" ColumnName="ImePolja" />
+                <ScalarProperty Name="LokacijaPolja" ColumnName="LokacijaPolja" />
+                <ScalarProperty Name="PovrsinaPolja" ColumnName="PovrsinaPolja" />
+                <ScalarProperty Name="TipZitarice" ColumnName="TipZitarice" />
+                <ScalarProperty Name="Gnojivo" ColumnName="Gnojivo" />
+                <ScalarProperty Name="Pesticidi" ColumnName="Pesticidi" />
+                <ScalarProperty Name="Herbicidi" ColumnName="Herbicidi" />
+                <ScalarProperty Name="Gorivo" ColumnName="Gorivo" />
+                <ScalarProperty Name="TrosakSjemena" ColumnName="TrosakSjemena" />
+                <ScalarProperty Name="TrosakGnojiva" ColumnName="TrosakGnojiva" />
+                <ScalarProperty Name="TrosakSpriceva" ColumnName="TrosakSpriceva" />
+                <ScalarProperty Name="TrosakGoriva" ColumnName="TrosakGoriva" />
+                <ScalarProperty Name="OstaliTroskovi" ColumnName="OstaliTroskovi" />
+                <ScalarProperty Name="Prinos" ColumnName="Prinos" />
+                <ScalarProperty Name="CijenaOtkupa" ColumnName="CijenaOtkupa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="User1" ColumnName="User" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

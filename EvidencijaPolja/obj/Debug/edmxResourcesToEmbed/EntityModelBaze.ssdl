@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaPodatakaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BazaPodatakaModelStoreContainer">
+    <EntitySet Name="Godina" EntityType="BazaPodatakaModel.Store.Godina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Polje" EntityType="BazaPodatakaModel.Store.Polje" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="BazaPodatakaModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Godina_User" Association="BazaPodatakaModel.Store.FK_Godina_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Godina" EntitySet="Godina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Polje_Godina" Association="BazaPodatakaModel.Store.FK_Polje_Godina">
+      <End Role="Godina" EntitySet="Godina" />
+      <End Role="Polje" EntitySet="Polje" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Godina">
+    <Key>
+      <PropertyRef Name="GodinaId" />
+    </Key>
+    <Property Name="GodinaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Godina" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Polje">
+    <Key>
+      <PropertyRef Name="PoljeId" />
+    </Key>
+    <Property Name="PoljeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="GodinaId" Type="int" />
+    <Property Name="ImePolja" Type="nvarchar" MaxLength="50" />
+    <Property Name="LokacijaPolja" Type="nvarchar" MaxLength="50" />
+    <Property Name="PovrsinaPolja" Type="decimal" />
+    <Property Name="TipZitarice" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gnojivo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pesticidi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Herbicidi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gorivo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TrosakSjemena" Type="decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakGnojiva" Type="decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakSpriceva" Type="decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakGoriva" Type="decimal" Precision="2" Scale="2" />
+    <Property Name="OstaliTroskovi" Type="decimal" Precision="2" Scale="2" />
+    <Property Name="Prinos" Type="decimal" />
+    <Property Name="CijenaOtkupa" Type="decimal" Precision="2" Scale="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Godina_User">
+    <End Role="User" Type="BazaPodatakaModel.Store.User" Multiplicity="0..1" />
+    <End Role="Godina" Type="BazaPodatakaModel.Store.Godina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Godina">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Polje_Godina">
+    <End Role="Godina" Type="BazaPodatakaModel.Store.Godina" Multiplicity="0..1" />
+    <End Role="Polje" Type="BazaPodatakaModel.Store.Polje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Godina">
+        <PropertyRef Name="GodinaId" />
+      </Principal>
+      <Dependent Role="Polje">
+        <PropertyRef Name="GodinaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaPodatakaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BazaPodatakaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Godina" EntityType="BazaPodatakaModel.Godina" />
+    <EntitySet Name="Polje" EntityType="BazaPodatakaModel.Polje" />
+    <EntitySet Name="User" EntityType="BazaPodatakaModel.User" />
+    <AssociationSet Name="FK_Godina_User" Association="BazaPodatakaModel.FK_Godina_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Godina" EntitySet="Godina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Polje_Godina" Association="BazaPodatakaModel.FK_Polje_Godina">
+      <End Role="Godina" EntitySet="Godina" />
+      <End Role="Polje" EntitySet="Polje" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Godina">
+    <Key>
+      <PropertyRef Name="GodinaId" />
+    </Key>
+    <Property Name="GodinaId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Godina1" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="User" Relationship="BazaPodatakaModel.FK_Godina_User" FromRole="Godina" ToRole="User" />
+    <NavigationProperty Name="Polje" Relationship="BazaPodatakaModel.FK_Polje_Godina" FromRole="Godina" ToRole="Polje" />
+  </EntityType>
+  <EntityType Name="Polje">
+    <Key>
+      <PropertyRef Name="PoljeId" />
+    </Key>
+    <Property Name="PoljeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="GodinaId" Type="Int32" />
+    <Property Name="ImePolja" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LokacijaPolja" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PovrsinaPolja" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TipZitarice" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gnojivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Pesticidi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Herbicidi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gorivo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TrosakSjemena" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakGnojiva" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakSpriceva" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="TrosakGoriva" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="OstaliTroskovi" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="Prinos" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CijenaOtkupa" Type="Decimal" Precision="2" Scale="2" />
+    <NavigationProperty Name="Godina" Relationship="BazaPodatakaModel.FK_Polje_Godina" FromRole="Polje" ToRole="Godina" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="User1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Godina" Relationship="BazaPodatakaModel.FK_Godina_User" FromRole="User" ToRole="Godina" />
+  </EntityType>
+  <Association Name="FK_Godina_User">
+    <End Role="User" Type="BazaPodatakaModel.User" Multiplicity="0..1" />
+    <End Role="Godina" Type="BazaPodatakaModel.Godina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Godina">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Polje_Godina">
+    <End Role="Godina" Type="BazaPodatakaModel.Godina" Multiplicity="0..1" />
+    <End Role="Polje" Type="BazaPodatakaModel.Polje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Godina">
+        <PropertyRef Name="GodinaId" />
+      </Principal>
+      <Dependent Role="Polje">
+        <PropertyRef Name="GodinaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

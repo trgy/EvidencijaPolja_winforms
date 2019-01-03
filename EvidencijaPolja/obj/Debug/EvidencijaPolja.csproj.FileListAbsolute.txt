@@ -1,0 +1,21 @@
+c:\users\trgy\documents\visual studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\EvidencijaPolja.exe.config
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\BazaPodataka.mdf
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\BazaPodataka_log.ldf
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\EvidencijaPolja.exe
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\EvidencijaPolja.pdb
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\EntityFramework.dll
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\bin\Debug\EntityFramework.xml
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.csprojResolveAssemblyReference.cache
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.Properties.Resources.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.csproj.GenerateResource.Cache
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.exe
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.pdb
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.LoginForm.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.GodineForm.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.KreirajUserForm.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.PoljaForm.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.DetaljiPoljaForm.resources
+C:\Users\Trgy\Documents\Visual Studio 2012\Projects\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.UrediPoljeForm.resources
+D:\C#\ProjectBackup\EvidencijaPolja\EvidencijaPolja\bin\Debug\EvidencijaPolja.exe.config
+D:\C#\ProjectBackup\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.exe
+D:\C#\ProjectBackup\EvidencijaPolja\EvidencijaPolja\obj\Debug\EvidencijaPolja.pdb
